@@ -83,7 +83,6 @@ var fight = function (enemy) {
         if (playerInfo.health <= 0) {
             window.alert(playerInfo.name + ' has died!');
             // leave while() loop if player is dead
-
         } else {
             window.alert(playerInfo.name + ' still has ' + playerInfo.health + ' health left.');
         }
@@ -160,25 +159,22 @@ var shop = function () {
         'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one "REFILL", "UPGRADE", or "LEAVE" to make a choice.'
     );
 
+    shopOptionPrompt = parseInt(shopOptionPrompt);
     // use switch case to carry out action
+    debugger;
     switch (shopOptionPrompt) {
-        case 'REFILL':
-        case 'refill':
+        case 1:
             playerInfo.refillHealth();
             break;
-        case 'UPGRADE':
-        case 'upgrade':
+        case 2:
             playerInfo.upgradeAttack();
             break;
-        case 'LEAVE':
-        case 'leave':
+        case 3:
             window.alert('Leaving the store.');
-
             // do nothing, so function will end
             break;
         default:
             window.alert('You did not pick a valid option. Try again.');
-
             // call shop() again to force player to pick a valid option
             shop();
             break;
